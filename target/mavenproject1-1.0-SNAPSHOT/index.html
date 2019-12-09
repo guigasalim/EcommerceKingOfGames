@@ -1,0 +1,332 @@
+<jsp:useBean id="Cliente" type="br.com.weboh.kingofgames.model.Cliente" scope="session"/>
+<jsp:useBean id="Pedido" type="br.com.weboh.kingofgames.model.Pedido" scope="session"/>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>King of Cards</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+
+
+        <script src='main.js'></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            var unicodeWord = XRegExp("^\\p{L}+$");
+
+            unicodeWord.test("Русский"); // true
+            unicodeWord.test("日本語"); // true
+            unicodeWord.test("العربية"); // true
+        </script>
+    </head>
+    <body>
+
+
+        <!-- MEU NAVBAR -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1" style="background-color: #003559"></div>  
+                <div class="col-md-10">
+
+
+                    <div class="row bg-dark">
+                        <div class="col-md-1">
+                            <a class="navbar-brand" href="./index"><img src="./icons/crown.png" style="height: 50px"></a>
+                        </div>
+                        <div class="col-md-7">
+
+                            <nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between flex-row flex-wrap">
+
+                                <div class="collapse navbar-collapse w-100" id="conteudoNavbarSuportado">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="./index">Home <span class="sr-only">(página atual)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="./vitrine?src=1" name="linkMTG">MTG</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="./vitrine?src=2" name="linkYGO">Yu-gi-oh</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="./vitrine?src=3" name="linkPKO">Pokemon</a>
+                                        </li>
+                                    </ul>
+
+                                    <!--<form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                                        <button class="btn  my-2 my-sm-0" type="submit">Pesquisar</button>
+                                    </form>-->
+                                </div>
+
+
+                            </nav>
+
+                        </div>
+                         <div class="col-md-1">
+                            <a href="./loginoumeusdados"><img src="./icons/avatar.png" style="height: 50px;"></a>
+                        </div>
+                        <div class="col-md-1 nome">
+                            <strong></strong>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="./carrinho"><img src="./icons/cart.png" style="height: 30px" id="cadastro"></a>
+                        </div>
+
+                        </div>
+
+                        <!-- MEU CAROUSEL -->
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" style='height:350px'>
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="img/mtg.jpg" alt="First slide" style='height:300px'>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="img/yugi.png" alt="Second slide" style='height:300px'>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="img/pokemon.jpg" alt="Third slide" style='height:300px'>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h3 class="text-center" style="padding-top:50px; color:white;">
+                                    FIND YOUR CARDS :
+                                </h3><BR>
+                                <div class="md-form mt-0">
+                                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                                </div>
+
+
+
+
+                                <h3 class="text-center" style="padding-top:50px; color:white;">
+                                    Ofertas da SEMANA! Tempo L I M I T A D O !
+                                    <br><br>        
+
+                                    <!--TODO: mudar toda semana e mudar para cartas novas-->
+                                    <script language="JavaScript1.2">
+                                        var aa = 2019
+                                        var mm = 12
+                                        var dd = 07
+                                        var hh = 09
+                                        var mi = 00
+
+                                        function setcountdown(theyear, themonth, theday, hour, minutes) {
+                                            yr = theyear;
+                                            mo = themonth;
+                                            da = theday
+                                        }
+                                        setcountdown(aa, mm, dd)
+
+
+                                        var occasion = "fim da promoção"
+                                        var message_on_occasion = "É hoje"
+
+
+                                        var countdownwidth = '510px'
+                                        var countdownheight = '200px'
+                                        var countdownbgcolor = '#343a40'
+                                        var opentags = '<font face="Verdana" size="5" color="#FFFFFF">'
+                                        var closetags = '</font>'
+
+
+                                        var montharray = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+                                        var crosscount = ''
+
+                                        function start_countdown() {
+                                            if (document.layers)
+                                                document.countdownnsmain.visibility = "show"
+                                            else if (document.all || document.getElementById)
+                                                crosscount = document.getElementById && !document.all ? document.getElementById("countdownie") : countdownie
+                                            countdown()
+                                        }
+
+                                        if (document.all || document.getElementById)
+                                            document.write('<span id="countdownie" style="width:' + countdownwidth + '; background-color:' + countdownbgcolor + '"></span>')
+
+                                        window.onload = start_countdown
+
+
+                                        function countdown() {
+                                            var today = new Date()
+                                            var todayy = today.getYear()
+                                            if (todayy < 1000)
+                                                todayy += 1900
+                                            var todaym = today.getMonth()
+                                            var todayd = today.getDate()
+                                            var todayh = today.getHours()
+                                            var todaymin = today.getMinutes()
+                                            var todaysec = today.getSeconds()
+                                            var todaystring = montharray[todaym] + " " + todayd + ", " + todayy + " " + todayh + ":" + todaymin + ":" + todaysec
+                                            futurestring = montharray[mo - 1] + " " + da + ", " + yr
+                                            dd = Date.parse(futurestring) - Date.parse(todaystring)
+                                            dday = Math.floor(dd / (60 * 60 * 1000 * 24) * 1)
+                                            dhour = Math.floor((dd % (60 * 60 * 1000 * 24)) / (60 * 60 * 1000) * 1)
+                                            dmin = Math.floor(((dd % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) / (60 * 1000) * 1)
+                                            dsec = Math.floor((((dd % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) % (60 * 1000)) / 1000 * 1)
+                                            //if on day of occasion
+                                            if (dday <= 0 && dhour <= 0 && dmin <= 0 && dsec <= 1 && todayd == da) {
+                                                if (document.layers) {
+                                                    document.countdownnsmain.document.countdownnssub.document.write(opentags + message_on_occasion + closetags)
+                                                    document.countdownnsmain.document.countdownnssub.document.close()
+                                                } else if (document.all || document.getElementById)
+                                                    crosscount.innerHTML = opentags + message_on_occasion + closetags
+                                                return
+                                            }
+                                            //if passed day of occasion
+                                            else if (dday <= -1) {
+                                                if (document.layers) {
+                                                    document.countdownnsmain.document.countdownnssub.document.write(opentags + "Occasion already passed! " + closetags)
+                                                    document.countdownnsmain.document.countdownnssub.document.close()
+                                                } else if (document.all || document.getElementById)
+                                                    crosscount.innerHTML = opentags + "Já passou" + closetags
+                                                return
+                                            }
+                                            //else, if not yet
+                                            else {
+                                                if (document.layers) {
+                                                    document.countdownnsmain.document.countdownnssub.document.write(opentags + dday + " days, " + dhour + " hours, " + dmin + " minutes, and " + dsec + " " + occasion + closetags)
+                                                    document.countdownnsmain.document.countdownnssub.document.close()
+                                                } else if (document.all || document.getElementById)
+                                                    crosscount.innerHTML = opentags + dday + " dias, " + dhour + " horas, " + dmin + " minutos e " + dsec + " segundos para o <b>" + occasion + closetags
+                                            }
+                                            setTimeout("countdown()", 1000)
+                                        }
+                                    </script>
+
+                                </h3>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="padding-top:  50px">
+                            <div class="col-md-1"></div>
+
+                            <div class="col-md-2">
+                                <img class="d-block w-100" src="img/card_mtg.jpg" alt="Third slide" style='height:250px'>
+                                <div class="card-body">
+                                    <p class="card-text" style="color:white">
+                                    <strike>De: 18000,00</strike> <br> Por: 1990,99
+                                    </p>
+                                    <button type="button" class="btn btn-success">
+                                        C o m p r a r !
+                                    </button>     
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                            </div>
+
+                            <div class="col-md-2" >
+                                <img class="d-block w-100" src="img/card_pok.jpg" alt="Third slide" style='height:250px'>
+                                <div class="card-body">
+                                    <p class="card-text" style="color:white">
+                                    <strike>De: 50,00</strike> <br> Por: 1,99
+                                    </p>
+                                    <button type="button" class="btn btn-success">
+                                        C o m p r a r !
+                                    </button>     
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                            </div>
+
+                            <div class="col-md-2" >
+                                <img class="d-block w-100" src="img/card_yugi.jpg" alt="Third slide" style='height:250px'>
+                                <div class="card-body">
+                                    <p class="card-text" style="color:white">
+                                    <strike>De: 1000,00</strike> <br> Por: 199,99
+                                    </p>
+                                    <button type="button" class="btn btn-success">
+                                        C o m p r a r !
+                                    </button>     
+                                </div>
+                            </div>
+
+                            <div class="col-md-1"></div>
+
+                        </div>
+
+
+                        <div class="row" style="padding-top:  50px">
+                            <div class="col-md-1"></div>
+
+                            <div class="col-md-2">
+                                <img class="d-block w-100" src="img/borreload.jpg" alt="Third slide" style='height:250px'>
+                                <div class="card-body">
+                                    <p class="card-text" style="color:white">
+                                    <strike>De: 18000,00</strike> <br> Por: 1990,99
+                                    </p>
+                                    <button type="button" class="btn btn-success">
+                                        C o m p r a r !
+                                    </button>     
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                            </div>
+
+                            <div class="col-md-2" >
+                                <img class="d-block w-100" src="img/fantastical.jpg" alt="Third slide" style='height:250px'>
+                                <div class="card-body">
+                                    <p class="card-text" style="color:white">
+                                    <strike>De: 50,00</strike> <br> Por: 1,99
+                                    </p>
+                                    <button type="button" class="btn btn-success">
+                                        C o m p r a r !
+                                    </button>     
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                            </div>
+
+                            <div class="col-md-2" >
+                                <img class="d-block w-100" src="img/pot.jpg" alt="Third slide" style='height:250px'>
+                                <div class="card-body">
+                                    <p class="card-text" style="color:white">
+                                    <strike>De: 1000,00</strike> <br> Por: 199,99
+                                    </p>
+                                    <button type="button" class="btn btn-success">
+                                        C o m p r a r !
+                                    </button>     
+                                </div>
+                            </div>
+
+                            <div class="col-md-1"></div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-1" style="background-color: #003559"></div>          
+
+                </div>
+            </div>    
+    </body>
+</html>

@@ -1,0 +1,61 @@
+body{
+  background-color: #343a40;
+}
+.luz{
+  background-color: #FFFFFF;
+}
+.camp{
+    
+    border-style: double;
+    background-color: #d6d6c2;
+    
+}
+.nome{
+    
+    color: #F9De00;
+    text-shadow : 1px 1px #c0c0c0
+    
+}
+.menu{
+   background-color:  #343a40;
+}
+.carousel .i
+.carousel .item {
+  height: 300px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+
+.btn{
+    background-color: #AE9B00;
+    border-color: #AE9B00;
+}
+
+.btn:hover{
+    background-color: #F9De00;
+    border-color: #F9De00;
+   color: #000000
+    
+    
+    
+}
+h3{
+    color: #F9De00;
+    text-shadow : 1px 1px #c0c0c0
+}
+
+h10{
+    color: #F9De00;
+    font-size: 4 px;
+    text-shadow : 1px 1px #c0c0c0
+}
+
+.addCart{
+   padding:10px;
+    
+}
